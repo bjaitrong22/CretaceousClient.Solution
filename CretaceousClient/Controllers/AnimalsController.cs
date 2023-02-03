@@ -11,4 +11,11 @@ public class AnimalsController: Controller
 
     return View(animals);
   }
+
+  public IActionResult Details(int id)
+  {
+    Animal animal = Animal.GetDetails(id);
+
+    return View(animal);
+  }
 }
