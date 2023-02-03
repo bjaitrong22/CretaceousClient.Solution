@@ -31,4 +31,18 @@ public class AnimalsController: Controller
 
     return RedirectToAction("Index");
   }
+
+  public ActionResult Edit(int id)
+  {
+    Animal animal = Animal.GetDetails(id);
+    return View(animal);
+  }
+
+  [HttpPost]
+  public ActionResult Edit(Animal animal)
+  {
+    Animal.Put(animal);
+    
+    return RedirectToAction("Details", new { id = animal.AnimalId});
+  }
 }
